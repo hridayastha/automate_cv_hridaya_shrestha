@@ -1,0 +1,145 @@
+---
+name: Hridaya Shrestha #Whatever text goes in name will be light (so if you don't want your last name to be bold, put your full name here). Whatever text goes in surname will be bold (so if you want your name to be bold, put your full name as surname).
+surname:
+position: "Molecular and Cell Biologist (Cancer Researcher)"
+pronouns: he/him
+address: "Middletown, CT 06457, USA"
+phone: +1 760 515 1182
+www: www.hshrestha.com
+email: "hridayastha@gmail.com"
+twitter: hridayastha
+github: hridayastha
+linkedin: hridayastha
+orcid: 0000-0002-5738-0118
+googlescholar: eurUHUYAAAAJ
+#aboutme: Detail-oriented and passionate cancer researcher with over 10 years of experience in molecular and cell biology. Adaptive team player with in-depth knowledge of cancer cell signaling and genetic mouse models.
+headcolor:  0395DE #414141(No color/My favorite color) #This line removes the accent color altogether.
+#You can change the CV accent color (currently red)by playing around with the awesome-cv.cls document where colors are defined (look from line 122).
+date: "`r format(Sys.time(), '%B %Y')`"
+output:
+  vitae::awesomecv:
+    page_total: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+```{r functions}
+readExcelSheets <- function(filename){
+  # read all sheets in .xlsx 
+  all <- readxl::excel_sheets(filename)
+  
+  # import each sheet into a list using readxl::read_excel
+  list <- lapply(all, function(x) readxl::read_excel(filename, sheet = x))
+  
+  # save sheet name for each sheet (list)
+  names(list) <- all
+  
+  # breaks up list and creates a dataframe for each sheet with df names matching sheet names
+  list2env(list, envir = .GlobalEnv)
+}
+```
+
+```{r load-data, message=F, results='hide'}
+filename <- here::here("automate_cv_hridaya_shrestha", 
+                       "hridaya_shrestha_vitae_data.xlsx")
+readExcelSheets(filename)
+```
+
+# Summary
+
+\paragraphstyle
+
+Detail-oriented and passionate Cancer Researching professional with 10+ years of experience in molecular & cell biology, specializing in cancer cell signaling and genetic mouse models. Proven track record of publishing research papers and presenting at conferences. Proficient in various molecular biology techniques, such as DNA & RNA isolation, PCR, Western blot analysis, and immunoprecipitation. Skilled in bulk & single-cell RNA sequencing analysis and critical thinking to provide accurate findings. Highly motivated, proactive, and organized, with excellent communication skills and the ability to work effectively both independently and as part of a team.
+
+\normalfont
+
+# Work Experience
+
+```{r}
+Work %>% 
+  detailed_entries(what = role,
+                   when = dates,
+                   with = institution,
+                   where = where,
+                   why = details)
+```
+
+# Education
+
+```{r}
+library(tibble)
+Education%>% 
+  detailed_entries(what = degree,
+                   when = year,
+                   with = institution,
+                   where = where,
+                   why = details)
+```
+
+# Skills
+
+- **Molecular Biology:** DNA and RNA isolation | PCR and RT-qPCR | Western blot analysis | Immuno-precipitation (IP)
+
+- **Microbiology:** Biosafety Level 2 Pathogens | Bacterial Cultures | Transformations
+
+- **In vivo Animal Techniques (mouse):** Animal husbandry | Tail tipping and ear tagging | Intravenous tail vein injection | Intraperitoneal injection | Subcutaneous injection | Oral gavage | Dissection (lymph nodes, spleen, thymus, pancrease, mammary glands, lungs, liver, prostate) | Pancreas and mammary gland digestion for flow cytometry | Orthotopic transplantation
+
+- **Microscopy:** Brightfield microscopy | Immunohistochemistry | Immunofluorescence | Fluorescence microscopy
+
+- **Tissue culture techniques:**Mammalian Cell Culture | Stable Cell Line Generation | Transfection and electroporation | Retro/Lenti-virus Production/Transduction | 3D Cell Culture | siRNA and shRNA Knockdown | CRISPR Knockdown | Cell Proliferation Assay | Cell Migration Assay | Cell Viability Assay | Tumorsphere Assay | Pancreas Explant Culture
+
+- **Softwares and Data Analysis tools** 
+    - *Bioinformatics:* Bulk RNA-Seq Analysis | Single Cell RNA-Seq Analysis | ChIP-Seq Analysis
+    - *Softwares:* FlowJo | ImageJ | GraphPad Prism | SnapGene | Endnote | Microsoft Office Suite | Adobe Illustrator and Photoshop
+    
+<!--- **Languages:** Nepali-Native speaker | English - Full professional proficiency | Korean - Limited working proficiency | Hindi - Limited working proficiency -->
+
+# Publications
+
+**Published Journal Articles**
+
+For a complete list of publications, see [*my Google Scholar profile*](https://scholar.google.com/citations?user=eurUHUYAAAAJ&hl=en).
+
+1. **Shrestha, H.**, Rädler, P. D., Dennaoui, R., Wicker, M. N., Rajbhandari, N., Sun, Y., Peck, A. R., Vistisen, K., Triplett, A. A., Beydoun, R., Sterneck, E., Saur, D., Rui, H., & Wagner, K. U. (2024). [The Janus kinase 1 is critical for pancreatic cancer initiation and progression.](https://doi.org/10.1016/j.celrep.2024.114202) *Cell reports, 43*(5), 114202.
+
+1. Rädler, P. D., Vistisen, K., Triplett, A. A., Dennaoui, R., Li, Y., **Shrestha, H.**, Ferraiuolo, R. M., Thangasamy, A., Saur, D., & Wagner, K. U. (2021). [Dual recombinase action in the normal and neoplastic mammary gland epithelium.](https://doi.org/10.1038/s41598-021-00231-8) *Scientific reports, 11*(1), 20775. 
+
+1. Dennaoui, R., **Shrestha, H.**, & Wagner, K. U. (2021). [Models of pancreatic ductal adenocarcinoma](https://doi.org/10.1007/s10555-021-09989-9). *Cancer metastasis reviews, 40*(3), 803–818.
+
+1. Rädler, P. D., Wehde, B. L., Triplett, A. A., **Shrestha, H.**, Shepherd, J. H., Pfefferle, A. D., Rui, H., Cardiff, R. D., Perou, C. M., & Wagner, K. U. (2021). [Highly metastatic claudin-low mammary cancers can originate from luminal epithelial cells](https://doi.org/10.1038/s41467-021-23957-5). *Nature communications, 12*(1), 3742. 
+
+<!--1. Sakamoto, K., Rädler, P. D., Wehde, B. L., Triplett, A. A., **Shrestha, H.**, Ferraiuolo, R. M., Amari, F., Coppola, V., Klinakis, A., Efstratiadis, A., & Wagner, K. U. (2020). [Efficient tissue-type specific expression of target genes in a tetracycline-controlled manner from the ubiquitously active Eef1a1 locus](https://doi.org/10.1038/s41598-019-57052-z). *Scientific reports, 10*(1), 207. -->
+
+5. Wehde, B. L., Rädler, P. D., **Shrestha, H.**, Johnson, S. J., Triplett, A. A., & Wagner, K. U. (2018). [Janus Kinase 1 Plays a Critical Role in Mammary Cancer Progression](https://doi.org/10.1016/j.celrep.2018.10.063). *Cell reports, 25*(8), 2192–2207.e5. 
+
+5. Shrestha, N., **Shrestha, H.**, Ryu, T., Kim, H., Simkhada, S., Cho, Y. C., Park, S. Y., Cho, S., Lee, K. Y., Lee, J. H., & Kim, K. (2018). [δ-Catenin Increases the Stability of EGFR by Decreasing c-Cbl Interaction and Enhances EGFR/Erk1/2 Signaling in Prostate Cancer](https://doi.org/10.14348/molcells.2018.2292). *Molecules and cells, 41*(4), 320–330.
+
+5. **Shrestha, H.**, Yuan, T., He, Y., Moon, P. G., Shrestha, N., Ryu, T., Park, S. Y., Cho, Y. C., Lee, C. H., Baek, M. C., Cho, S., Simkhada, S., Kim, H., & Kim, K. (2016). [Investigation of the molecular mechanism of δ-catenin ubiquitination: Implication of β-TrCP-1 as a potential E3 ligase](https://doi.org/10.1016/j.bbamcr.2016.06.006). *Biochimica et biophysica acta, 1863*(9), 2311–2321.
+
+5. **Shrestha, H.**, Ryu, T., Seo, Y. W., Park, S. Y., He, Y., Dai, W., Park, E., Simkhada, S., Kim, H., Lee, K., & Kim, K. (2017). [Hakai, an E3-ligase for E-cadherin, stabilizes δ-catenin through Src kinase](https://doi.org/10.1016/j.cellsig.2017.01.009). *Cellular signalling, 31*, 135–145.
+
+<!--1. He, Y., Ryu, T., Shrestha, N., Yuan, T., Kim, H., **Shrestha, H.**, Cho, Y. C., Seo, Y. W., Song, W. K., & Kim, K. (2016). [Interaction of EGFR to δ-catenin leads to δ-catenin phosphorylation and enhances EGFR signaling](https://doi.org/10.1038/srep21207). *Scientific reports, 6*, 21207. -->
+
+**Submitted, Pending Submission, and In Revision Journal Articles:**
+
+1. **Shrestha, H.**, Vistisen, K., Rädler, P.D. and Wagner, K.U. The Janus kinase 1 is critical for the postnatal development of the pancreas. (pending submission).
+
+<!--1. Dennaoui, R., Rädler, P.D., Wicker, M.N., Vistisen, K., Ferraiuolo, R.M., Triplett, A.A., **Shrestha, H.**, Liner T.A., Manthey K.C., Rui, H., Cardiff R.D., Gunn T.M., Perou C.M. and Wagner K.U. Overexpression of TSG101 causes cellular plasticity and development of adenosquamous mammary carcinoma. *PNAS* (submitted) -->
+
+# Others
+\paragraphstyle
+- **Trainings and Workshops:** 15-weeks of hands-on workshop on Data Management & Statistical Analysis in R, Wayne State University (2021)
+
+- **Awards, Scholarships, and Fellowships:** WooJung Education and Culture Foundation Aid Fund (2015-2017) | Fostering Next Generation Researchers Program Scholarship (2013-2017) | Korean Government Academic Achievement Award (2013) | Korean Government Scholarship (2010-2014)
+
+- **Volunteer Work:** Ad-hoc reviewer for the following journals: Scientific Reports, Cellular Signalling, Cancer Control, The International Journal of Biochemistry & Cell Biology, European Journal of Cell Biology, Cells, Cancers,International Journal of Molecular Sciences, Biomolecules, Medicina and Journal of Clinical Medicine (2020-present)
+
+- **Professional Societies:** Associate Member of American Association for Cancer Research (AACR) (2017-present) | Regular Member of Korean Society of Molecular Cell Biology, South Korea (2021-present) | <!--Full Member of Graduate Pharmacists' Associaton of Nepal (2009-present) -->
+
+- **Conferences and Presentations:**Participant at Cold Spring Harbor Laboratory's meeting on JAK-STAT Pathways in Health & Disease Meeting (2020) | Poster presentation at American Association for Cancer Research Annual Meeting (2017) | Poster presentation at International Conference of
+the Korea Society for Molecular and Cellular Biology (2013)
+
+- **References:** References will be provided upon request.
